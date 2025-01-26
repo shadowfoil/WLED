@@ -198,6 +198,10 @@
   #include "../usermods/pwm_outputs/usermod_pwm_outputs.h"
 #endif
 
+#ifdef USERMOD_POWER_AP
+  #include "../usermods/powerap/powerap.h"
+#endif
+
 #ifdef USERMOD_HTTP_PULL_LIGHT_CONTROL
   #include "../usermods/usermod_v2_HttpPullLightControl/usermod_v2_HttpPullLightControl.h"
 #endif
@@ -421,6 +425,10 @@ void registerUsermods()
 
   #ifdef USERMOD_PWM_OUTPUTS
   UsermodManager::add(new PwmOutputsUsermod());
+  #endif
+
+  #ifdef USERMOD_POWER_AP
+  UsermodManager::add(new PowerAPUsermod());
   #endif
 
   #ifdef USERMOD_SHT
